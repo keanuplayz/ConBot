@@ -1,8 +1,13 @@
 # You're going to hate me for this
 
-# Set up crap
+# Import all required packages
+import os
 import discord
 from discord.ext import commands
+from dotenv import load_dotenv
+
+# Load the vars as system environment variables
+load_dotenv()
 
 # Define the client
 client = commands.Bot(command_prefix='&_')
@@ -12,7 +17,7 @@ client = commands.Bot(command_prefix='&_')
 async def on_ready():
     print('Hi!')
 
-# tells d.py that this is a commands
+# tells d.py that this is a command
 @client.command()
 # define command name
 async def userinfo(ctx):
@@ -29,5 +34,5 @@ async def pissbaby(ctx):
 
 
 
-client.run('')
+client.run(os.getenv('TOKEN'))
 # if there's a token here and youre reading it tell me so i can fix that
